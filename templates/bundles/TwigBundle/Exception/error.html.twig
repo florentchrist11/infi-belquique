@@ -1,0 +1,22 @@
+{% extends 'vitrine/base/base.html.twig' %}
+
+{% block title %}Erreur{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="m-auto" style="height: 300px">
+                    <img class="w-100 h-100" src="{{ asset('images/reviews/server_down.svg') }}" alt="...">
+                </div>
+            </div>
+            <div class="col-12 text-center mt-4">
+                <h5 class="mb-3">Une erreur est surevenue</h5><br/>
+                <a class="mb-lg-3 mb-3 btn btn-primary"
+                   href="{{ path('booking_index') }}">
+                    Revenir en lieu sûr
+                </a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

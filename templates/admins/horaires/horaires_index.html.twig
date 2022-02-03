@@ -1,0 +1,140 @@
+{% extends "admins/base/base.html.twig" %}
+
+{% block title %}Gestions des horaires{% endblock %}
+
+{% block body %}
+    <!-- Container fluid -->
+    <div class="container-fluid px-6 py-4">
+        {% include 'components/page_title/_page_title.twig' with {
+            title: 'Gestions des horaires'
+        } %}
+
+        <!-- row -->
+        <div class="row">
+            <div class="col-6">
+                <!-- card -->
+                <div class="card">
+                    <!-- card header  -->
+                    <div class="card-header bg-white border-bottom-0 py-4">
+                        <h4 class="mb-0">Listes des horaires par jour</h4>
+                    </div>
+                    <!-- card body -->
+                    <div class="card-body">
+                        <table class="table text-center" id="datatable">
+                            <thead>
+                            <tr>
+                                <form method="POST" action="{{ path('admin_horaires_index') }}">
+                                    <th colspan="6">
+                                        <select class="form-select" name="jour">
+                                            {% for jour in jours %}
+                                            <option {{ selectJour == jour.id ? 'selected' : '' }} value="{{ jour.id }}">{{ jour.designation }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </th>
+                                    <th>
+                                        <button class="btn btn-primary">
+                                            <i class="fas fa-arrow-right"></i>
+                                        </button>
+                                    </th>
+                                </form>
+                            </tr>
+                            <tr>
+                                <th class="w-75 text-start">Jour</th>
+                                <th>Debut</th>
+                                <th>Fin</th>
+                                <th>Statut</th>
+                                <th>Supprimer</th>
+                                <th>Desactiver</th>
+                                <th>Editer</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for horaire in horaires %}
+                                <tr>
+                                    <td class="w-75 text-start">{{ horaire.jour.designation|upper }}</td>
+                                    <td>{{ horaire.startAt|date('h:i') }}</td>
+                                    <td>{{ horaire.finishAt|date('h:i') }}</td>
+                                    <td>
+                                        {% if horaire.isActive %}
+                                        <span class="badge rounded-pill bg-success p-2">
+                                          Activer
+                                        </span>
+                                        {% else  %}
+                                        <span class="badge rounded-pill bg-secondary p-2">
+                                          Desactiver
+                                        </span>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        {% if horaire.reservationsHoraires|length == 0 %}
+                                            <a href="{{ path('admin_horaires_delete', {'id': horaire.id, 'jour' : selectJour}) }}"
+                                               class="btn btn-sm rounded-circle btn-danger">
+                                                <i class="fas fa-trash"></i>
+                                            </a>
+                                        {% endif %}
+                                    </td>
+                                    <td class="text-center">
+                                        {% if horaire.isActive == true %}
+                                        <a href="{{ path('admin_horaires_action', {'id': horaire.id, 'jour' : selectJour}) }}"
+                                           class="btn btn-sm rounded-circle btn-secondary">
+                                            <i class="fas fa-stop"></i>
+                                        </a>
+                                        {% else %}
+                                            <a href="{{ path('admin_horaires_action', {'id': horaire.id, 'jour' : selectJour}) }}"
+                                               class="btn btn-sm rounded-circle btn-success">
+                                                <i class="fas fa-play"></i>
+                                            </a>
+                                        {% endif %}
+                                    </td>
+                                    <td class="text-center">
+                                        <a href="{{ path('admin_horaires_edit', {'id': horaire.id, 'jour' : selectJour}) }}"
+                                           class="btn btn-sm rounded-circle btn-secondary">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            {% else %}
+                                <tr>
+                                    <td colspan="7">
+                                        Aucun disponibilite trouvée
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <!-- card -->
+                <div class="card">
+                    <!-- card header  -->
+                    <div class="card-header bg-white border-bottom-0 py-4">
+                        <h4 class="mb-0">Formulaires</h4>
+                    </div>
+                    <!-- card body -->
+                    <div class="card-body">
+                        {{ form_start(form_horaires) }}
+                        <div class="row">
+                            <div class="col-6">
+                                {{ form_widget(form_horaires.startAt) }}
+                            </div>
+                            <div class="col-6">
+                                {{ form_widget(form_horaires.finishAt) }}
+                            </div>
+                            <div class="col-12 mt-3">
+                                {{ form_widget(form_horaires.jour) }}
+                            </div>
+                            <div class="col-12 mt-3">
+                                <button type="submit" class="btn btn-outline-primary w-100">
+                                    Valider
+                                </button>
+                            </div>
+                        </div>
+                        {{ form_end(form_horaires) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

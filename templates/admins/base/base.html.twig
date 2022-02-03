@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}{% endblock %} - Admin Infi belgique</title>
+    {# Run `composer require symfony/webpack-encore-bundle`
+    and uncomment the following Encore helpers to start using Symfony UX #}
+    {% block stylesheets %}
+    {{ encore_entry_link_tags('app') }}
+    {{ encore_entry_link_tags('admin') }}
+    {% endblock %}
+</head>
+
+<body>
+<div id="db-wrapper" class="toggled">
+    <!-- navbar vertical  -->
+    {% include "admins/base/_side_bar.html.twig" %}
+    <!-- page content  -->
+    <div id="page-content">
+        <!-- Page content -->
+        {% include "admins/base/_header.html.twig" %}
+        {% block body %}
+
+        {% endblock %}
+    </div>
+    {% block javascripts %}
+    {{ encore_entry_script_tags('app') }}
+    {{ encore_entry_script_tags('admin') }}
+    {% endblock %}
+</div>
+</body>
+
+</html>

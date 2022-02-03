@@ -1,0 +1,48 @@
+.hero {  
+  padding-top: 0rem;
+}
+
+.hero .container {
+  position: relative;
+  overflow: hidden;
+  height: 75vh;
+}
+
+.heroText {
+  background: $white-color;
+  position: absolute;
+  z-index: 2;
+  bottom: 0;
+  right: 0;
+  padding: 20px;
+  width: 50%;
+}
+
+.contact-phone {
+  font-weight: $font-weight-semibold;
+}
+
+/*$$$$$$$$$$$$$$$$$$$-
+  FEATURED              
+$$$$$$$$$$$$$$$$$$$$-*/
+.featured-circle {
+  border-radius: 100%;
+  width: 350px;
+  height: 350px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.featured-text {
+  font-size: $h6-font-size;
+  line-height: 2rem;
+  font-weight: $font-weight-bold;
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.featured-number {
+  color: $primary-color;
+  font-size: 8rem;
+  margin: 0 10px;
+}

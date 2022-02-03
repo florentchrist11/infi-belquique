@@ -1,0 +1,14 @@
+{% extends 'vitrine/base/base.html.twig' %}
+
+{% block title %}TEST PCR OU TEST RAPIDE A DOMICILE OU EN ENTREPRISE {% endblock %}
+
+{% block body %}
+    <section class="section-padding">
+        <div class="container">
+            <div class="row">
+                {% include 'vitrine/test_pcr/_desc.html.twig' %}
+                {% include 'vitrine/_includes/_contact.html.twig' %}
+            </div>
+        </div>
+    </section>
+{% endblock %}

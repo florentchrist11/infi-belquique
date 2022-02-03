@@ -1,0 +1,55 @@
+{% extends 'vitrine/base/base.html.twig' %}
+
+{% block title %}Contact{% endblock %}
+
+{% block body %}
+<section class="section-padding">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-4 col-md-5 col-12 mx-auto">
+                <img src="{{ asset('images/gallery/female-doctor-with-presenting-hand-gesture.jpg') }}" class="img-fluid" alt="porter un masque" title="portez un masque pour vous protéger">
+                <div class="booking-form" id="booking">
+                    <form role="form" action="#booking" method="post">
+                        <div class="row">
+                            <div class="col-12">
+                                <input type="text" name="name" id="name" class="form-control" placeholder="Nom et prénom"
+                                    required="">
+                            </div>
+            
+                            <div class="col-12">
+                                <input type="email" name="email" id="email" pattern="[^ @]*@[^ @]*" class="form-control"
+                                    placeholder="Adresse e-mail" required="">
+                            </div>
+            
+                            <div class="col-12">
+                                <input type="telephone" name="phone" id="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                                    class="form-control" placeholder="Téléphone : 123-456-7890">
+                            </div>
+            
+                            <div class="col-12">
+                                <input type="date" name="date" id="date" value="" class="form-control">
+            
+                            </div>
+            
+                            <div class="col-12">
+                                <textarea class="form-control" rows="5" id="message" name="message"
+                                    placeholder="Message supplémentaire"></textarea>
+                            </div>
+            
+                            <div class="col-6 mx-auto mb-4">
+                                <button type="submit" class="form-control" id="submit-button">
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">Contactez-nous</font>
+                                    </font>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+{% endblock %}

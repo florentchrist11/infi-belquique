@@ -1,0 +1,25 @@
+.booking-form .form-control {
+  background: transparent;
+  border-radius: 0;
+  border: 0;
+  border-bottom: 1px solid $border-color;
+  color: #6c757d;
+  font-weight: $font-weight-normal;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  margin-top: 15px;
+  transition: all 0.3s;
+}
+
+.booking-form #submit-button {
+  background: $dark-color;
+  border-bottom: 0;
+  font-weight: $font-weight-semibold;
+  color: $white-color;
+  text-transform: uppercase;
+  margin-top: 35px;
+}
+
+.booking-form #submit-button:hover {
+  background: $primary-color;
+}

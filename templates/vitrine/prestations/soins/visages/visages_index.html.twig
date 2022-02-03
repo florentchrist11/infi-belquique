@@ -1,0 +1,14 @@
+{% extends 'vitrine/base/base.html.twig' %}
+
+{% block title %}Aide et soins à domicile à visage humain{% endblock %}
+
+{% block body %}
+    <section class="section-padding">
+        <div class="container">
+            <div class="row">
+                {% include 'vitrine/prestations/soins/visages/_desc.html.twig' %}
+                {% include 'vitrine/_includes/_contact.html.twig' %}
+            </div>
+        </div>
+    </section>
+{% endblock %}

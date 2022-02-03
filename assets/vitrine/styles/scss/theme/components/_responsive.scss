@@ -1,0 +1,140 @@
+@media screen and (min-width: 1600px) {
+  .hero .container {
+    height: 740px;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  body {
+    padding-top: 74px;
+  }
+
+  h1 {
+    font-size: 38px;
+  }
+
+  h2 {
+    font-size: 32px;
+  }
+
+  h3 {
+    font-size: 26px;
+  }
+
+  h4 {
+    font-size: 24px;
+  }
+
+  h5 {
+    font-size: 20px;
+  }
+
+  h6 {
+    font-size: 18px;
+  }
+
+  .section-padding {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+
+  .navbar {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .navbar-nav .nav-link {
+    padding-top: 5px;
+    padding-bottom: 10px;
+  }
+
+  .hero .container {
+    height: inherit;
+  }
+
+  .heroText {
+    position: relative;
+    bottom: 100px;
+    left: 0;
+    width: auto;
+    margin-bottom: -100px;
+    padding: 2rem;
+  }
+
+  .featured-circle {
+    width: 320px;
+    height: 320px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .heroText {
+    padding: 1.5rem;
+  }
+
+  .animated-info {
+    min-width: 125px;
+  }
+
+  .featured-circle {
+    margin-top: 20px;
+  }
+
+  .reviews-carousel .owl-nav {
+    position: relative;
+    width: auto !important;
+    transform: inherit;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    max-width: 100px;
+    margin: 20px auto;
+  }
+
+  .reviews-carousel .owl-nav .owl-prev,
+  .reviews-carousel .owl-nav .owl-next {
+    right: 0;
+    left: 0;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .heroText {
+    padding: 1rem;
+  }
+
+  .heroLinks .custom-link {
+    font-size: 12px;
+    line-height: 30px;
+    margin-right: 12px !important;
+    padding: 0 25px;
+  }
+
+  .contact-phone {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .featured-number {
+    font-size: 5rem;
+  }
+
+  .featured-circle {
+    width: 235px;
+    height: 235px;
+  }
+
+  .reviews-image {
+    width: 55px !important;
+    height: 55px !important;
+  }
+
+  .reviews-thumb figcaption {
+    font-size: $menu-font-size;
+  }
+
+  .timeline::before {
+    left: 42px;
+  }
+}

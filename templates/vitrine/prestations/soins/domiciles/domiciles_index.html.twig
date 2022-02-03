@@ -1,0 +1,14 @@
+{% extends 'vitrine/base/base.html.twig' %}
+
+{% block title %}Vos soins à domicile, le sourire en plus !{% endblock %}
+
+{% block body %}
+    <section class="section-padding">
+        <div class="container">
+            <div class="row">
+                {% include 'vitrine/prestations/soins/domiciles/_desc.html.twig' %}
+                {% include 'vitrine/_includes/_contact.html.twig' %}
+            </div>
+        </div>
+    </section>
+{% endblock %}

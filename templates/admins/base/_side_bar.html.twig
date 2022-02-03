@@ -1,0 +1,40 @@
+<!-- Sidebar -->
+<nav class="navbar-vertical navbar">
+    <div class="nav-scroller">
+        <!-- Brand logo -->
+        <a class="navbar-brand" href="/admin">
+            <img src="{{ asset('images-admin/avatar/avatar.jpg') }}" alt="" /> INFI BELGIQUE
+        </a>
+        <!-- Navbar nav -->
+        <ul class="navbar-nav flex-column" id="sideNavbar">
+            <li class="nav-item">
+                <a class="nav-link has-arrow " href="{{ path('admin_index') }}">
+                    <i class="nav-icon fas fa-compass me-2 fa-2x"></i>  Dashboard
+                </a>
+            </li>
+            <!-- Nav item -->
+            <li class="nav-item">
+                <a class="nav-link has-arrow " href="{{ path('admin_horaires_index') }}">
+                    <i class="nav-icon fas fa-times-circle me-2 fa-2x"></i>  Horaires journalieres
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link has-arrow  collapsed " href="#!"
+                   data-bs-toggle="collapse" data-bs-target="#navActe"
+                   aria-expanded="false" aria-controls="navAuthentication">
+                    <i class="nav-icon fas fa-book-medical me-2 fa-2x"></i> Gestion des prestations
+                </a>
+                <div id="navActe" class="collapse " data-bs-parent="#sideNavbar">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link " href="{{ path('admin_actes_index') }}"> Actes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="{{ path('admin_gestion_categorie_index') }}"> Categories d'acte</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>

@@ -1,0 +1,32 @@
+<!-- card -->
+<div class="card">
+    <!-- card body -->
+    <div class="card-body">
+        <!-- row -->
+        <div class="row mt-3">
+            <div class="col-12 mb-5">
+                <!-- text -->
+                <h6 class="text-uppercase fs-5 ls-2">Nom(s) et Prénom(s)</h6>
+                <p class="mb-0">{{ reservation.patientsEnregistrer.nom|upper }} {{ reservation.patientsEnregistrer.prenom|upper }}</p>
+                <hr/>
+                <!-- text -->
+                <h6 class="text-uppercase mt-3 fs-5 ls-2">Email / Contact</h6>
+                <p class="mb-0">{{ reservation.patientsEnregistrer.email }}
+                    / {{ reservation.patientsEnregistrer.contact }}</p>
+                <hr/>
+                <!-- text -->
+                <h6 class="text-uppercase  mt-3 fs-5 ls-2">Code postal / Localite</h6>
+                <p class="mb-0">({{ reservation.patientsEnregistrer.codePostal.code }})
+                    - {{ reservation.patientsEnregistrer.codePostal.localite }}</p>
+                <hr/>
+                <!-- text -->
+                <h6 class="text-uppercase  mt-3 fs-5 ls-2">Nom de la rue</h6>
+                <p class="mb-0">{{ reservation.patientsEnregistrer.rue }}</p>
+                <hr/>
+                <!-- text -->
+                <h6 class="text-uppercase  mt-3 fs-5 ls-2">Numéro de porte</h6>
+                <p class="mb-0">{{ reservation.patientsEnregistrer.numeroPorte }}</p>
+            </div>
+        </div>
+    </div>
+</div>

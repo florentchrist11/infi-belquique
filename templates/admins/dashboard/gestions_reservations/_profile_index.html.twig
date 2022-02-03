@@ -1,0 +1,31 @@
+<div class="row align-items-center">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-12">
+        <!-- Bg -->
+        <div class="pt-20 rounded-top" style="background: url(/images-admin/background/profile-cover.jpg) no-repeat;
+                background-size: cover;">
+        </div>
+        <div class="bg-white rounded-bottom smooth-shadow-sm ">
+            <div class="d-flex align-items-center justify-content-between
+                  pt-4 pb-6 px-4">
+                <div class="d-flex align-items-center">
+                    <!-- avatar -->
+                    <div class="avatar-xxl avatar-indicators avatar-online me-2
+                      position-relative d-flex justify-content-end
+                      align-items-end mt-n10">
+                        <img src="/images-admin/avatar/avatar.jpg" class="avatar-xxl
+                        rounded-circle border border-4 border-white-color-40" alt="">
+                    </div>
+                    <!-- text -->
+                    <div class="lh-1">
+                        <h3 class="mb-0">{{ reservation.patientsEnregistrer.nom|upper }} {{ reservation.patientsEnregistrer.prenom|upper }}
+                            <a href="#!" class="text-decoration-none" data-bs-toggle="tooltip" data-placement="top" title="" data-original-title="Beginner">
+
+                            </a>
+                        </h3>
+                        <p class="mb-0 d-block">{{ reservation.patientsEnregistrer.email }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

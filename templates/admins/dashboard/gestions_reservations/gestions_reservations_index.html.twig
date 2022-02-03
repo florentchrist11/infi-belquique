@@ -1,0 +1,27 @@
+{% extends "admins/base/base.html.twig" %}
+
+{% block title %}Gestion de la reservation{% endblock %}
+
+{% block body %}
+    <!-- Container fluid -->
+    <div class="container-fluid px-6 py-4">
+        {% include 'components/page_title/_page_title.twig' with {
+                title: 'Gestions de la réservation',
+                link: 'admin_index'
+        } %}
+
+        <!-- content -->
+        <div class="py-6">
+            <!-- row -->
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-12 mb-6">
+                    {% include 'admins/dashboard/gestions_reservations/_details_reservation.html.twig' %}
+                </div>
+
+                <div class="col-lg-8 col-md-6 col-12 col-12 mb-6">
+                    {% include 'admins/dashboard/gestions_reservations/_action_reservation.html.twig' %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

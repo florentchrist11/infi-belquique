@@ -1,0 +1,53 @@
+<table class="table text-nowrap mb-0 table-responsive" id="datatable">
+    <thead class="table-light">
+    <tr>
+        <th>Date</th>
+        <th>Nom(s) et prenom(s)</th>
+        <th>Contact</th>
+        <th>Email du demandeur</th>
+        <th>Status</th>
+        <th>Gérer</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for reservation in reservations %}
+        <tr>
+            <td>{{ reservation.createdAt|date('d, M Y H:i') }}</td>
+            <td>{{ reservation.patientsEnregistrer.nom }} {{ reservation.patientsEnregistrer.prenom }}</td>
+            <td>{{ reservation.patientsEnregistrer.contact }}</td>
+            <td>{{ reservation.patientsEnregistrer.email }}</td>
+            <td>
+                {% if reservation.statut == 1 %}
+                    <span class="badge rounded-pill bg-danger p-2">
+                      Non valider
+                    </span>
+                {% elseif reservation.statut == 2 %}
+                    <span class="badge rounded-pill bg-secondary p-2">
+                      En attente
+                    </span>
+                {% elseif reservation.statut == 3 %}
+                    <span class="badge rounded-pill bg-info p-2">
+                      rendez valider
+                    </span>
+                {% elseif reservation.statut == 4 %}
+                    <span class="badge rounded-pill bg-success p-2">
+                      Déjà gérer
+                    </span>
+                {% endif %}
+            </td>
+            <td align="center">
+                <a class="btn btn-sm btn-primary"
+                   href="{{ path('admin_reservations_index', {'id': reservation.id }) }}">
+                    <i class="fas fa-plus"></i>
+                </a>
+            </td>
+        </tr>
+    {% else %}
+        <tr>
+            <td colspan="7" align="center">
+                Aucun reservation trouvée
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>

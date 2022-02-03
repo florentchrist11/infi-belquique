@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Email de confirmation</title>
+    {{ include('emails/_style_email.html.twig') }}
+</head>
+<body class="">
+<span class="preheader">Email de confirmation de votre reservation sur la plateforme infi-belgique.</span>
+<table role="presentation" border="0" cellpadding="0" cellspacing="0" class="body">
+    <tr>
+        <td>&nbsp;</td>
+        <td class="container">
+            <div class="content">
+                <div style="font-size: 22px;color: #ab0bc7;
+                font-weight: bold;text-align: center;margin: 20px;">
+                    Steph HealtPlace
+                </div>
+                <!-- START CENTERED WHITE CONTAINER -->
+                <table role="presentation" class="main">
+
+                    <!-- START MAIN CONTENT AREA -->
+                    <tr>
+                        <td class="wrapper">
+                            <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <td>
+                                        <p>Salut {{ patient.nom }} {{ patient.prenom }},</p>
+
+                                        <p>Suite a votre reservation des prestations,<br/>
+                                            {% for prestations in reservation.prestations %}
+                                        <li style="font-weight: 16px;">{{ prestations.label }}</li>
+                                        {% endfor %}
+                                        <br/><br/>
+                                        aux horaire suivates suivantes
+                                        {% for horaire in horaires %}
+                                            <li>{{ horaire.startAt|date('d/m/y H:i') }}</li>
+                                        {% endfor %}
+                                        <br/>
+                                        Bien vouloir confirmer votre prise de rendez vous en cliquant sur les buttons ci
+                                        apres,
+                                        .</p>
+                                        <table role="presentation" border="0"
+                                               cellpadding="0" cellspacing="0">
+                                            <tbody>
+                                            <tr>
+                                                <td align="left">
+                                                    <table role="presentation" border="0" cellpadding="0"
+                                                           cellspacing="0">
+                                                        <tbody>
+                                                        <tr>
+                                                            <td>
+                                                                <a href="{{ absolute_url(path('app_booking_active',
+                                                                    {'id': reservation.id})) }}" class="btn-primary"
+                                                                   target="_blank">Confirmer votre reservation</a>
+                                                            </td>
+                                                            <td>
+                                                                <a href="{{ absolute_url(path('app_booking_dismiss',
+                                                                    {'id': reservation.id})) }}" class="btn-secondary"
+                                                                   target="_blank">Supprimer votre reservation</a>
+                                                            </td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                        <br/>
+                                        <strong>NB: le liens d'activation expire
+                                            le {{ expiredAt|date('d/m/Y') }}
+                                            à {{ expiredAt|date('H') }}h.</strong>
+                                        <br/>
+                                        <p>Merci d'avoir penser a nous.</p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+
+                    <!-- END MAIN CONTENT AREA -->
+                </table>
+                <!-- END CENTERED WHITE CONTAINER -->
+
+                {{ include('emails/_footer_email.twig') }}
+
+            </div>
+        </td>
+        <td>&nbsp;</td>
+    </tr>
+</table>
+</body>
+</html>

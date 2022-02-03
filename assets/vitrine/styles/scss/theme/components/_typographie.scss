@@ -1,0 +1,74 @@
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $dark-color;
+  line-height: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: $font-weight-semibold;
+}
+
+h1,
+h2 {
+  font-weight: $font-weight-bold;
+}
+
+h1 {
+  font-size: $h1-font-size;
+  line-height: normal;
+}
+
+h2 {
+  font-size: $h2-font-size;
+}
+
+h3 {
+  font-size: $h3-font-size;
+}
+
+h4 {
+  font-size: $h4-font-size;
+}
+
+h5 {
+  font-size: $h5-font-size;
+}
+
+h6 {
+  font-size: $h6-font-size;
+}
+
+p {
+  color: $p-color;
+  font-size: $p-font-size;
+  font-weight: $font-weight-light;
+  letter-spacing: 0.5px;
+}
+
+a, 
+button {
+  touch-action: manipulation;
+  transition: all 0.3s;
+}
+
+a {
+  color: $p-color;
+  text-decoration: none;
+}
+
+a:hover {
+  color: $primary-color;
+}
+
+.section-padding {
+  padding-top: 7rem;
+  padding-bottom: 7rem;
+}

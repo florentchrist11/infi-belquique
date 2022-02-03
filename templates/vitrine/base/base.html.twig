@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="index,follow"/>
+    <meta name="googlebot" content="index,follow"/>
+    <meta name="description" content="Steph Healthplace, votre infirmière à domicile
+    à Vilvoorde Zaventem Machelen ou environs"/>
+    <meta property="og:url" content="https://www.infi-stephhealtplace.com/"/>
+    <meta property="og:title" content="Votre infirmière à domicile - Steph Healthplace"/>
+    <meta property="og:description" content="Steph HealthPlace, votre infirmière à domicile
+    à Vilvoorde Zaventem Machelen ou environs"/>
+    <meta property="og:site_name" content="Steph Healthplace"/>
+    <title>{% block title %}{% endblock %} - Steph Healthplace</title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-M1RYC3Z77Q"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+        gtag('config', 'G-M1RYC3Z77Q');
+    </script>
+    {# Run `composer require symfony/webpack-encore-bundle`
+       and uncomment the following Encore helpers to start using Symfony UX #}
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+            {{ encore_entry_link_tags('vitrine') }}
+        {% endblock %}
+    </head>
+    <body>
+        <main>
+        {% include 'vitrine/base/_navbar.html.twig'%}
+        {% block body %}
+
+        {% endblock %}
+        </main>
+        {% include 'vitrine/base/_footer.html.twig'%}
+
+    </body>
+    {% block javascripts %}
+    {{ encore_entry_script_tags('app') }}
+    {{ encore_entry_script_tags('vitrine') }}
+    {% endblock %}
+</html>

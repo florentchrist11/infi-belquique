@@ -1,0 +1,14 @@
+{% extends 'vitrine/base/base.html.twig' %}
+
+{% block title %}Vos soins infirmiers en toute confiance{% endblock %}
+
+{% block body %}
+    <section class="section-padding">
+        <div class="container">
+            <div class="row">
+                {% include 'vitrine/prestations/soins/infirmiers/_desc.html.twig' %}
+                {% include 'vitrine/_includes/_contact.html.twig' %}
+            </div>
+        </div>
+    </section>
+{% endblock %}

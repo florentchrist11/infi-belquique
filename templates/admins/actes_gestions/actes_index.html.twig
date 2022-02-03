@@ -1,0 +1,89 @@
+{% extends "admins/base/base.html.twig" %}
+
+{% block title %}Gestions actes{% endblock %}
+
+{% block body %}
+    <!-- Container fluid -->
+    <div class="container-fluid px-6 py-4">
+        {% include 'components/page_title/_page_title.twig' with {
+            title: 'Gestions des actes'
+        } %}
+
+        <!-- row -->
+        <div class="row">
+            <div class="col-6">
+                <!-- card -->
+                <div class="card">
+                    <!-- card header  -->
+                    <div class="card-header bg-white border-bottom-0 py-4">
+                        <h4 class="mb-0">Listes des actes</h4>
+                    </div>
+                    <!-- card body -->
+                    <div class="card-body">
+                        <table class="table text-center table-responsive" id="datatable">
+                            <thead>
+                            <tr>
+                                <th class="w-75 text-start">Desigation</th>
+                                <th>Categories</th>
+                                <th>Supprimer</th>
+                                <th>sélectionner</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for prestation in prestations %}
+                                <tr>
+                                    <td class="w-75 text-start">{{ prestation.designation }}</td>
+                                    <td>
+                                        <span class="badge rounded-pill bg-secondary p-2">
+                                          {{ prestation.categorie.designation }}
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <a href="{{ path('admin_actes_delete', {'id': prestation.id}) }}"
+                                           class="btn btn-sm rounded-circle btn-danger">
+                                            <i class="fas fa-trash"></i>
+                                        </a>
+                                    </td>
+                                    <td class="text-center">
+                                        <a href="{{ path('admin_actes_edit', {'id': prestation.id}) }}"
+                                           class="btn btn-sm rounded-circle btn-secondary">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <!-- card -->
+                <div class="card">
+                    <!-- card header  -->
+                    <div class="card-header bg-white border-bottom-0 py-4">
+                        <h4 class="mb-0">Formulaires</h4>
+                    </div>
+                    <!-- card body -->
+                    <div class="card-body">
+                        {{ form_start(form_prestations) }}
+                        <div class="row">
+                            <div class="col-12">
+                                {{ form_widget(form_prestations.designation) }}
+                            </div>
+                            <div class="col-12 mt-3">
+                                {{ form_widget(form_prestations.categorie) }}
+                            </div>
+                            <div class="col-12 mt-3">
+                                <button type="submit" class="btn btn-outline-primary w-100">
+                                    Valider
+                                </button>
+                            </div>
+                        </div>
+                        {{ form_end(form_prestations) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

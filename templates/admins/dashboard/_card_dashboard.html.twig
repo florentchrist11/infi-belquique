@@ -1,0 +1,19 @@
+{% include 'components/card/_card_includes.html.twig' with
+    { title: 'Nombre de réservations du mois', value: nombre,
+        desc: '', icon: 'fas fa-users'}
+%}
+
+{% include 'components/card/_card_includes.html.twig' with
+  { title: 'Réservation en attente', value: attente,
+      desc: '', icon: 'fas fa-business-time'}
+%}
+
+{% include 'components/card/_card_includes.html.twig' with
+  { title: 'Réservation en attente de réalisations', value: valider,
+      desc: '', icon: 'fas fa-user-edit'}
+%}
+
+{% include 'components/card/_card_includes.html.twig' with
+  { title: 'Réservations déjà gerer', value: gerer,
+      desc: '', icon: 'fas fa-street-view'}
+%}

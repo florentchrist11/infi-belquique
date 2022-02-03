@@ -1,0 +1,33 @@
+@import "~react-bootstrap-typeahead/css/Typeahead.css";
+@import "~@fortawesome/fontawesome-free/css/fontawesome.min.css";
+@import "./scss/theme.scss";
+
+
+.select__control {
+  background: transparent;
+  border-radius: 0;
+  border: 1px solid $border-color;
+  color: #6c757d;
+  font-weight: $font-weight-normal;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  transition: all 0.3s;
+
+  &:focus {
+    color: #495057;
+    border-bottom-color: $gray-400;
+    outline: 0;
+    box-shadow: none;
+  }
+}
+
+.basic-multi-select {
+  border-radius: 0;
+
+  &:focus {
+    color: #495057;
+    border-bottom-color: $gray-400;
+    outline: 0;
+    box-shadow: none;
+  }
+}

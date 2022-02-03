@@ -1,0 +1,15 @@
+.list-group-item {
+  background-color: transparent;
+  color: $p-color;
+  font-size: $p-font-size;
+  padding: 1rem 0;
+}
+
+.list-group-item:first-child {
+  padding-top: 0;
+}
+
+.list-group-item span {
+  font-weight: $font-weight-semibold;
+  margin-left: auto;
+}

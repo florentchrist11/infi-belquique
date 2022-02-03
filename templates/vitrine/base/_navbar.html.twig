@@ -1,0 +1,50 @@
+<nav class="navbar navbar-expand-lg bg-light fixed-top shadow-lg">
+    <div class="container">
+        <a class="navbar-brand mx-auto d-lg-none" href="/">
+            Steph HealtPlace
+            <strong class="d-block">Specialiste des soins</strong>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item {% if current is defined and current == "apropos" %}active{% endif %}">
+                    <a class="nav-link" href="{{ path('apropos') }}">A propos</a>
+                </li>
+                <li class="nav-item {% if current is defined and current == "booking" %} active{% endif %}">
+                    <a class="nav-link" href="{{ path('booking_index') }}">Reservez des soins</a>
+                </li>
+                <a class="navbar-brand d-none d-lg-block" href="{{ path('home') }}">
+                    Steph HealtPlace
+                    <strong class="d-block">Spécialiste des soins</strong>
+                </a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+                       role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Prestations
+                    </a>
+                    <ul class="dropdown-menu border-0" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="{{ path('app_soins_domiciles_index') }}">
+                                Soins à domicile</a></li>
+                        <li><a class="dropdown-item" href="{{ path('app_soins_palliatifs_index') }}">
+                                Soins palliatifs</a></li>
+                        <li><a class="dropdown-item" href="{{ path('app_hygiene_index') }}">
+                                Toilette à domicile</a></li>
+                        <li><a class="dropdown-item" href="{{ path('app_soins_infirmiers_index') }}">
+                                Soins infirmiers</a></li>
+                        <li><a class="dropdown-item" href="{{ path('app_soins_visage_humain_index') }}">
+                                Garde malade et personnes âgées à domicile</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item {% if current is defined and current == "TestPcr" %} active{% endif %}">
+                    <a class="nav-link" href="{{ path('test_pcr') }}">Test PCR</a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</nav>

@@ -1,0 +1,82 @@
+{% extends "admins/base/base.html.twig" %}
+
+{% block title %}Gestions actes - categories{% endblock %}
+
+{% block body %}
+    <!-- Container fluid -->
+    <div class="container-fluid px-6 py-4">
+        {% include 'components/page_title/_page_title.twig' with {
+            title: 'Gestions des categories des actes'
+        } %}
+
+        <!-- row -->
+        <div class="row">
+            <div class="col-6">
+                <!-- card -->
+                <div class="card">
+                    <!-- card header  -->
+                    <div class="card-header bg-white border-bottom-0 py-4">
+                        <h4 class="mb-0">Listes des categories d'actes</h4>
+                    </div>
+                    <!-- card body -->
+                    <div class="card-body">
+                        <table class="table text-center table-responsive" id="datatable">
+                            <thead>
+                            <tr>
+                                <th class="w-75 text-start">Desigation</th>
+                                <th>Supprimer</th>
+                                <th>sélectionner</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for categorie in categories %}
+                            <tr>
+                                <td class="w-75 text-start">{{ categorie.designation }}</td>
+                                <td>
+                                {% if categorie.actesPrestations|length == 0 %}
+                                    <a href="{{ path('admin_gestion_categorie_delete', {'id': categorie.id}) }}"
+                                       class="btn btn-sm rounded-circle btn-danger">
+                                        <i class="fas fa-trash"></i>
+                                    </a>
+                                {% endif %}
+                                </td>
+                                <td class="text-center">
+                                    <a href="{{ path('admin_gestion_categorie_edit', {'id': categorie.id}) }}"
+                                       class="btn btn-sm rounded-circle btn-secondary">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <!-- card -->
+                <div class="card">
+                    <!-- card header  -->
+                    <div class="card-header bg-white border-bottom-0 py-4">
+                        <h4 class="mb-0">Formulaires</h4>
+                    </div>
+                    <!-- card body -->
+                    <div class="card-body">
+                        {{ form_start(acte_form) }}
+                        <div class="row">
+                            <div class="col-12">
+                                {{ form_widget(acte_form.designation) }}
+                            </div>
+                            <div class="col-12 mt-3">
+                                <button type="submit" class="btn btn-outline-primary w-100">
+                                    Valider
+                                </button>
+                            </div>
+                        </div>
+                        {{ form_end(acte_form) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
